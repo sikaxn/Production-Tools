@@ -262,3 +262,4 @@ while True:
             time.sleep(0.3)
     except:
         print("Something went wrong")
+        exit()
