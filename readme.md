@@ -21,7 +21,7 @@ There are 4 line of configure file. They are:
  2. Port of OpenLP Remote
  3. Serial port resource address
  4. Enable PinYin converter (0 as disabled, 1 as enabled, this function is in beta. If you're not dealing with Chinese please leave it as 0)
- 5. What to display if no lyric currently present. (if you want nothing, leave a space `` `` but don't remove that line.)
+ 5. What to display if no lyric currently present. (if you want nothing, leave a space `` `` but don't remove that line.)(Please keep this within the range of display (20 characters per line, two line or depends on your display))
 
 Sample  ```ECSDisplay.cfg```
 
@@ -30,7 +30,7 @@ Sample  ```ECSDisplay.cfg```
 4316
 /dev/ttyUSB0
 0
-(Currently none)
+(No Captions.       Avaliable now)
 ```
  # Setup OpenLP
  
