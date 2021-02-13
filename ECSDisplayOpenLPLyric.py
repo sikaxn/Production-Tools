@@ -22,6 +22,8 @@ def init():
     cfglst = cfgdecode()
     global pyEnabled
     pyEnabled = cfglst[3]
+    global defNone
+    defNone = cfglst[4]
     print(cfglst)
     welcomeRun = 0
     nwstat = 1
@@ -172,7 +174,7 @@ def cfgdecode():
     with open("ECSDisplay.cfg") as fp:
         Lines = fp.readlines()
         count = -1
-        lstread = ["","","",""]
+        lstread = ["","","","",""]
         for line in Lines:
             count += 1
             lstread[count] = line.strip()
@@ -198,7 +200,7 @@ def lyricFormatting(inputLyric):
         needConv = inputLyric.isascii()
     except:
         needConv = False
-        return "ready"
+        return "(none)"
     if needConv == True:
         formattedLyric = inputLyric.replace('\n'," ") ## replace newline to space to avoic massive scrolling.
         formattedLyric = inputLyric
@@ -234,6 +236,12 @@ def lyricFormatting(inputLyric):
             formattedLyric = out
         else:
             formattedLyric = "Unsupported Characters."
+            #print("format done")
+    #print(formattedLyric)
+    if formattedLyric.isspace() or formattedLyric == "":
+        global defNone
+        #print("isspace")
+        formattedLyric = defNone
     return formattedLyric
 
 def lyricSend(textIn):
@@ -267,10 +275,10 @@ def is_contains_chinese(strs):
 
 while True:
     try:
-        init
+        init()
         while True:
             lyricSend(lyricFormatting(lyricGet()))
             time.sleep(0.3)
     except:
-        print("Something went wrong")
-        exit()
+       print("Something went wrong")
+       exit()
