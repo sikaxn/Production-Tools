@@ -53,5 +53,5 @@ Please note that CD-5220 support total of 40 characters, 20 per line. If one sin
 
 1. Better Pinyin translation.
 2. Web interface for editing ``ECSDisplay.cfg``, reboot Pi, scrolling control, etc.
- 
+3. When there's mixed chinese and english in the same line of lyric, weared output will be shown.
  
