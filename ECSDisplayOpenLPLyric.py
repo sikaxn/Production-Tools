@@ -22,7 +22,7 @@ def init():
     cfglst = cfgdecode()
     global pyEnabled
     pyEnabled = cfglst[3]
-    ##print(cfglst)
+    print(cfglst)
     welcomeRun = 0
     nwstat = 1
     srstat = 1
@@ -221,7 +221,8 @@ def lyricFormatting(inputLyric):
         out = out.replace("“","’")
         ##COnvert to pinyin
         global pyEnabled
-        if pyEnabled == 1:
+        ##print(pyEnabled)
+        if str(pyEnabled) == "1":
             out = pyTranslate(out)
             ##print(out)
         #remove non ascii
@@ -244,15 +245,25 @@ def lyricSend(textIn):
         writeScrollLines(textIn)
 
 def pyTranslate(textIn):
-    outLL = pinyin.get(textIn , format="strip")
-    ##print("get py")
-    ##print(outLL)
-    outStr = outLL
+    contCN = is_contains_chinese(textIn)
+    if contCN == True:
+        outLL = pinyin.get(textIn , format="strip" , delimiter=" ")
+        ##print("get py")
+        ##print(outLL)
+        outStr = outLL
+    else:
+       outStr = textIn
     return outStr
 
 def getIPAddr():
     myIPAddr = subprocess.getoutput('hostname -I')
     return myIPAddr
+
+def is_contains_chinese(strs):
+    for _char in strs:
+        if '\u4e00' <= _char <= '\u9fa5':
+            return True
+    return False
 
 while True:
     try:
