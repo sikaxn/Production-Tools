@@ -178,7 +178,7 @@ def printingHandler(listIn):
 	print(time)
 	print(content)
 	with open('nopol.txt', 'w') as f:
-            towrite = "----NEW CUE----\n \n" +"Time: " + time+ "\n\nName: " +name + " \n ------------ \n" + content + "\n------------ \n" +  "----END----"
+            towrite = "----NEW CUE----\n" +"Time: " + time+ "\n\nName: " +name + " \n\n" + content + "\n" +  "----END----"
             f.write(towrite)
 	os.system('python Pprint.py')
 	
