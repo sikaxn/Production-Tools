@@ -29,12 +29,15 @@ def nwkConnectionInit():
 
 
 def find_true(json_obj):
-    j_obj = json.loads(json_obj)
-    slides = j_obj['results']['slides']
-    for i in slides:
-        if i['selected']:
-            return i['text']
-    return ""
+    try:
+        j_obj = json.loads(json_obj)
+        slides = j_obj['results']['slides']
+        for i in slides:
+            if i['selected']:
+                return i['text']
+        return ""
+    except:
+        return ""
 
 
 @app.route('/')
