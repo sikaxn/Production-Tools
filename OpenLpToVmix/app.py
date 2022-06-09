@@ -12,7 +12,7 @@ def nwkConnectionInit():
     
 
    # #print("Init network")
-    url = "http://10.0.0.163:4316/api/controller/live/text" 
+    url = "http://10.0.0.163:4316/api/controller/live/text"  ##Edit this to yoru OpenLP Machine IP 
     ##print(url)
     global req
     
