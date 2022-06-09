@@ -1,0 +1,6 @@
+<UserControl Width="1920" Height="1080" Panel.ZIndex="500" InputMethod.IsInputMethodEnabled="True" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mtl="clr-namespace:vMixTitleLibrary;assembly=vMixTitleLibrary">
+  <Grid InputMethod.IsInputMethodEnabled="True">
+    <Image Stretch="Fill" Width="1920" Height="1080" HorizontalAlignment="Left" VerticalAlignment="Top" Panel.ZIndex="0" InputMethod.IsInputMethodEnabled="True" />
+    <mtl:TextBlockDesign FontStyle="Normal" FontWeight="Black" FontFamily="Alibaba PuHuiTi M" Fill="#FFFF0000" FontSize="96" TextAlignment="Left" Text="Text" Name="lrcTextCN" Width="1700" Height="115.199996948242" Margin="100,860,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" InputMethod.IsInputMethodEnabled="True" />
+  </Grid>
+</UserControl>
