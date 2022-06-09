@@ -43,6 +43,11 @@ def find_true(json_obj):
 @app.route('/')
 def mainpagesr():
    return render_template('index.html')
+   
+@app.route('/view')
+def viewpager():
+    return render_template('view.html')
+
 
 @app.route('/raw')
 def returnRawData():
