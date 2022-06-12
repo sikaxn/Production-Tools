@@ -2,6 +2,7 @@ from flask import Flask, request, render_template
 from os import listdir
 import os
 from datetime import date
+import re
 app = Flask(__name__)
 
 
@@ -12,7 +13,7 @@ def nwkConnectionInit():
     
 
    # #print("Init network")
-    url = "http://10.0.0.163:4316/api/controller/live/text"  ##Edit this to yoru OpenLP Machine IP 
+    url = "http://127.0.0.1:4316/api/controller/live/text"  ##Edit this to yoru OpenLP Machine IP 
     ##print(url)
     global req
     
@@ -40,6 +41,12 @@ def find_true(json_obj):
         return ""
 
 
+def strip_ignore(textIn):
+    textOut = "".join(re.split("\(|\)|\[|\]", textIn)[::2])
+    return textOut
+
+        
+
 @app.route('/')
 def mainpagesr():
    return render_template('index.html')
@@ -59,8 +66,8 @@ def returnRawData():
 @app.route('/sel')
 def returnCurrentSelected():
     read = nwkConnectionInit()
-    
     read = find_true(read)
+    read = strip_ignore(read) ##everything in [ ] or ( ) will be ignored. comment this line if you don't want this to happen
     return read
 
 

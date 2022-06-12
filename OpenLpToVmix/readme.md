@@ -8,6 +8,10 @@ First you need to turn on Remote of your OpenLP. Than you'll need to know the po
 
 Please install python and add it to your PATH. After that, open powershell and run ```pip install flash```. After this, click on start.bat can launch the service. 
 
+# text ignore feature
+
+In some case you want some text to show on projector but not the overlay text. by not commenting ```strip_ignore()``` function, you can enable ignore feature. Everything you put in ( ) or [ ] will be stripped this scrip and not being sent to the overlay.
+
 # OBS Compatibility
 
 http://127.0.0.1:5000/view is the OBS View. You can add it as a browser source and do a green chroma key. 
